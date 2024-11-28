@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    padding: 20px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+p {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+
+p[color="green"] {
+    color: green;
+}
+
+p[color="red"] {
+    color: red;
+}
+
+form {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+select {
+    background-color: #fff;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select:not([disabled]):not([readonly]) {
+    background-color: #fff;
+    cursor: pointer;
+}
+
+select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+select:disabled {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+select:disabled:hover {
+    background-color: #f0f0f0;
+}
+
+.botones {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+button:disabled:hover {
+    background-color: #000000;
+}
+
+button {
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+button[name="accion"][value="crear"] {
+    background-color: #4CAF50;
+}
+
+button[name="accion"][value="crear"]:hover {
+    background-color: #45a049;
+}
+
+button[name="accion"][value="editar"] {
+    background-color: #ffa500;
+}
+
+button[name="accion"][value="editar"]:hover {
+    background-color: #e69500;
+}
+
+button[name="accion"][value="eliminar"] {
+    background-color: #f44336;
+}
+
+button[name="accion"][value="eliminar"]:hover {
+    background-color: #da190b;
+}
+
+button#limpiar {
+    background-color: #7e7e7e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+}
+
+button#limpiar:hover {
+    background-color: #5e5e5e;
+}
+
+input:read-only, select:read-only {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background-color: #e0e0e0;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.back-button a:hover {
+    background-color: #d6d6d6;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
