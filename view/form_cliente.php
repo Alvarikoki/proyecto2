@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
     <div class="back-button">
-        <a href="index.html">
+        <a href="../index.html">
             <img src="../img/row-icon.png" alt="Volver" class="icon">
         </a>
     </div>

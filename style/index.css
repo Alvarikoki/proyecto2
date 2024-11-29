@@ -9,28 +9,76 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f9;
+    background: linear-gradient(135deg, #f9f9f9, #e3e3e3);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
-    padding: 20px;
 }
 
-/* Estilo del encabezado */
-h1 {
-    color: #333;
-    margin-bottom: 40px;
+/* Navbar */
+.navbar {
+    width: 100%;
+    background-color: #333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.navbar h2 {
+    color: white;
+    font-size: 24px;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    color: #FFD700; /* Amarillo dorado */
+}
+
+/* Estilo principal */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    background-image: url('../img/header.jpg');
+}
+
+/* Encabezado */
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 36px;
 }
 
 /* Contenedor de botones */
 .button-container {
     display: flex;
     gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-/* Estilo de los botones */
+/* Botones */
 .button {
     display: inline-block;
     padding: 15px 30px;
@@ -43,32 +91,41 @@ h1 {
     transition: all 0.3s ease-in-out;
 }
 
-/* Botón individual - diferentes colores */
+/* Colores de los botones */
 .button:nth-child(1) {
     background-color: #4CAF50; /* Verde */
 }
 
 .button:nth-child(1):hover {
-    background-color: #45a049;
+    background-color: #3b913f;
 }
 
 .button:nth-child(2) {
-    background-color: #2196F3; /* Azul */
-}
-
-.button:nth-child(2):hover {
-    background-color: #1976D2;
-}
-
-.button:nth-child(3) {
     background-color: #FF5722; /* Naranja */
 }
 
-.button:nth-child(3):hover {
-    background-color: #E64A19;
+.button:nth-child(2):hover {
+    background-color: #ce451b;
 }
 
-/* Sombra al pasar el mouse */
+.button:nth-child(3) {
+    background-color: #FFC107; /* Amarillo */
+}
+
+.button:nth-child(3):hover {
+    background-color: #dfa909;
+}
+
+/* Efectos al pasar el mouse */
 .button:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.808);
+    transform: translateY(-3px);
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
 }

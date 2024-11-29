@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <div class="back-button">
-    <a href="index.html">
+    <a href="../index.html">
         <img src="../img/row-icon.png" alt="Volver" class="icon">
     </a>
 </div>
@@ -169,9 +169,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <label for="id_producto">Producto:</label>
     <select id="id_producto" name="id_producto" required>
-    <option value="" data-precio="0">Seleccione un producto</option>
+    <option value="" data-precio="0" data-cantidad="0">Seleccione un producto</option>
     <?php foreach ($productos as $producto): ?>
-        <option value="<?php echo $producto['id']; ?>" data-precio="<?php echo $producto['precio']; ?>">
+        <option value="<?php echo $producto['id']; ?>" data-precio="<?php echo $producto['precio']; ?>" data-cantidad="<?php echo $producto['cantidad']; ?>">
             <?php echo $producto['nombre']; ?>
         </option>
     <?php endforeach; ?>
@@ -260,13 +260,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Obtener el precio del producto seleccionado
         const precio = parseFloat(selectProducto.selectedOptions[0].getAttribute('data-precio')) || 0;
         const cantidad = parseInt(inputCantidad.value) || 0;
-
-        // Calcular el total
         const total = precio * cantidad;
-
-        // Actualizar el campo "Total"
         inputTotal.value = total.toFixed(2); // Mostrar con dos decimales
     }
+
+    inputCantidad.addEventListener('input', function() {
+    const cantidadDisponible = parseInt(selectProducto.selectedOptions[0].getAttribute('data-cantidad')) || 0;
+    if (parseInt(inputCantidad.value) > cantidadDisponible) {
+        inputCantidad.value = cantidadDisponible;
+    }
+    });
 
     // Eventos para actualizar el total dinámicamente
     selectProducto.addEventListener('change', calcularTotal);

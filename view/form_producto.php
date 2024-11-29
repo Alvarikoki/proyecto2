@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
 
 <div class="back-button">
-    <a href="index.html">
+    <a href="../index.html">
         <img src="../img/row-icon.png" alt="Volver" class="icon">
     </a>
 </div>
@@ -137,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <input type="text" id="nombre" name="nombre" placeholder="Ingrese el nombre del producto" required><br><br>
 
     <label for="precio">Precio:</label>
-    <input type="number" id="precio" name="precio" step="0.01" placeholder="Ingrese el precio del producto" required><br><br>
+    <input type="number" id="precio" name="precio" step="0.01" placeholder="Ingrese el precio del producto" min="0" required><br><br>
 
     <label for="cantidad">Cantidad:</label>
     <input type="number" id="cantidad" name="cantidad" placeholder="Ingrese una cantidad" required min="1"><br><br>
