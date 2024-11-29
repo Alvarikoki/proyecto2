@@ -63,6 +63,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['error'] = "Error al actualizar la factura: " . ($responseData['error'] ?? 'Desconocido');
         }
 
+        $data2 = [
+            'id' => $id_producto,
+            'cantidad' => $cantidad
+        ];
+
+        $ch2 = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch2, CURLOPT_POST, true);
+        curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($data2));
+        curl_setopt($ch2, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response2 = curl_exec($ch2);
+        $statusCode2 = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+        curl_close($ch2);
+
+        $responseData2 = json_decode($response2, true);
+        if ($statusCode2 == 200 && isset($responseData2['message'])) {
+            $_SESSION['message'] = $responseData2['message'];
+        } else {
+            $_SESSION['error'] = "Error al crear la factura: " . ($responseData2['error'] ?? 'Desconocido');
+        }
+
         header('Location: form_factura.php');
         exit();
 
@@ -118,6 +142,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['message'] = $responseData['message'];
         } else {
             $_SESSION['error'] = "Error al crear la factura: " . ($responseData['error'] ?? 'Desconocido');
+        }
+
+        $data2 = [
+            'id' => $id_producto,
+            'cantidad' => $cantidad
+        ];
+
+        $ch2 = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch2, CURLOPT_POST, true);
+        curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($data2));
+        curl_setopt($ch2, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+        ]);
+
+        $response2 = curl_exec($ch2);
+        $statusCode2 = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+        curl_close($ch2);
+
+        $responseData2 = json_decode($response2, true);
+        if ($statusCode2 == 200 && isset($responseData2['message'])) {
+            $_SESSION['message'] = $responseData2['message'];
+        } else {
+            $_SESSION['error'] = "Error al crear la factura: " . ($responseData2['error'] ?? 'Desconocido');
         }
 
         header('Location: form_factura.php');
@@ -275,6 +323,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     selectProducto.addEventListener('change', calcularTotal);
     inputCantidad.addEventListener('input', calcularTotal);
 </script>
-
 </body>
 </html>

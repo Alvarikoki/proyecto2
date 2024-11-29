@@ -31,6 +31,16 @@ function actualizarProducto($id, $nombre, $precio, $cantidad) {
     }
 }
 
+function actualizarCantidad($id, $cantidad) {
+    global $conn;
+    $sql = "UPDATE productos SET cantidad = cantidad - '$cantidad' WHERE id = $id";
+    if ($conn->query($sql)) {
+        return true;
+    } else {
+        return $conn->error;
+    }
+}
+
 function eliminarProducto($id) {
     global $conn;
     $sql = "DELETE FROM productos WHERE id = $id";
