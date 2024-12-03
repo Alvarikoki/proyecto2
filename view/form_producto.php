@@ -2,14 +2,7 @@
 session_start(); // Inicia la sesión
 
 $productos = file_get_contents('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
-if ($productos === false) {
-    die('Error al conectar con la API.');
-}
-
 $productos = json_decode($productos, true);
-if ($productos === null) {
-    die('Error al decodificar el JSON: ' . json_last_error_msg());
-}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
