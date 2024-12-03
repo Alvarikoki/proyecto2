@@ -1,5 +1,6 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
+
 require_once '../db/productos.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -42,20 +43,14 @@ switch ($method) {
     
     
 
-        case 'GET':
-            $result = obtenerProductos();
-            $productos = [];
-        
-            // Recorrer los resultados
-            while ($row = $result->fetch_assoc()) {
-                $productos[] = $row;
-            }
-        
-            var_dump($productos); 
-            exit;
-        
-            echo json_encode($productos);
-            break;
+    case 'GET':
+        $result = obtenerProductos();
+        $productos = [];
+        while ($row = $result->fetch_assoc()) {
+            $productos[] = $row;
+        }
+        echo json_encode($productos);
+        break;
 
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"), true);
