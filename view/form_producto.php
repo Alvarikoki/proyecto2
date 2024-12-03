@@ -100,6 +100,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         header('Location: form_producto.php');
         exit();
+    }elseif ($accion === 'eliminar') {
+        # code...
     }
 
 }
@@ -160,6 +162,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <th>Precio</th>
         <th>Cantidad</th>
     </tr>
+    <?php if (!empty($productos)): ?>
     <?php foreach ($productos as $producto): ?>
         <tr onclick="seleccionarProducto(<?php echo $producto['id']; ?>, '<?php echo $producto['nombre']; ?>', <?php echo $producto['precio']; ?>, <?php echo $producto['cantidad']; ?>)">
             <td><?php echo $producto['id']; ?></td>
@@ -168,6 +171,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <td><?php echo $producto['cantidad']; ?></td>
         </tr>
     <?php endforeach; ?>
+<?php else: ?>
+    <tr>
+        <td colspan="4">No hay productos disponibles</td>
+    </tr>
+<?php endif; ?>
 </table>
 
 <script>

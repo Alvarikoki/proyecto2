@@ -42,14 +42,22 @@ switch ($method) {
     
     
 
-    case 'GET':
-        $result = obtenerProductos();
-        $productos = [];
-        while ($row = $result->fetch_assoc()) {
-            $productos[] = $row;
-        }
-        echo json_encode($productos);
-        break;
+        case 'GET':
+            $result = obtenerProductos();
+            $productos = [];
+        
+            // Recorrer los resultados
+            while ($row = $result->fetch_assoc()) {
+                $productos[] = $row;
+            }
+        
+            // Inspeccionar lo que devuelve la API
+            var_dump($productos); 
+            exit;
+        
+            // Respuesta en formato JSON (se ejecutará solo si eliminas el var_dump y exit)
+            echo json_encode($productos);
+            break;
 
     case 'PUT':
         $data = json_decode(file_get_contents("php://input"), true);
