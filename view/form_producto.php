@@ -6,15 +6,11 @@ if ($productos === false) {
     die('Error al conectar con la API.');
 }
 
-// Mostrar la respuesta cruda para depurar
-echo $productos;
-
 $productos = json_decode($productos, true);
 if ($productos === null) {
     die('Error al decodificar el JSON: ' . json_last_error_msg());
 }
 
-// Verifica el contenido de los datos decodificados
 var_dump($productos);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
