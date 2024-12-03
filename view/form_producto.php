@@ -11,8 +11,6 @@ if ($productos === null) {
     die('Error al decodificar el JSON: ' . json_last_error_msg());
 }
 
-var_dump($productos);
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
     $nombre = $_POST['nombre'] ?? null;
