@@ -1,7 +1,7 @@
 <?php
 session_start(); // Inicia la sesión
 
-$productos = file_get_contents('http://localhost/proyecto2/apis/api_productos.php');
+$productos = file_get_contents('http://proyectodomain.great-site.net/apis/api_productos.php');
 $productos = json_decode($productos, true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); // PUT para actualizar
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -46,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $data = ['id' => $id];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE'); // DELETE para eliminar
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));

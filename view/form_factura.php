@@ -1,11 +1,11 @@
 <?php
 session_start(); // Inicia la sesión
 
-$facturas = file_get_contents('http://localhost/proyecto2/apis/api_facturas.php');
+$facturas = file_get_contents('http://proyectodomain.great-site.net/apis/api_facturas.php');
 $facturas = json_decode($facturas, true);
-$clientes = file_get_contents('http://localhost/proyecto2/apis/api_clientes.php');
+$clientes = file_get_contents('http://proyectodomain.great-site.net/apis/api_clientes.php');
 $clientes = json_decode($clientes, true);
-$productos = file_get_contents('http://localhost/proyecto2/apis/api_productos.php');
+$productos = file_get_contents('http://proyectodomain.great-site.net/apis/api_productos.php');
 $productos = json_decode($productos, true);
 
 function obtenerNombreCliente($id_cliente, $clientes) {
@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'total' => $total
         ];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_facturas.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_facturas.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch2 = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        $ch2 = curl_init('http://proyectodomain.great-site.net/apis/api_productos.php');
         curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch2, CURLOPT_POST, true);
         curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($data2));
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $data = ['id' => $id];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_facturas.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_facturas.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE');
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -125,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'total' => $total
         ];
 
-        $ch = curl_init('http://localhost/proyecto2/apis/api_facturas.php');
+        $ch = curl_init('http://proyectodomain.great-site.net/apis/api_facturas.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -149,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch2 = curl_init('http://localhost/proyecto2/apis/api_productos.php');
+        $ch2 = curl_init('http://proyectodomain.great-site.net/apis/api_productos.php');
         curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch2, CURLOPT_POST, true);
         curl_setopt($ch2, CURLOPT_POSTFIELDS, json_encode($data2));

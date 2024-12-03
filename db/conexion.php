@@ -1,8 +1,8 @@
 <?php
-$servidor = 'localhost';
-$usuario = 'root';
-$contraseña = '';
-$bd = 'facturacion';
+$servidor = 'sql308.infinityfree.com';
+$usuario = 'if0_37816829';
+$contraseña = 'IM9hSv2RXVMJ6Jb';
+$bd = 'if0_37816829_facturacion';
 
 $conn = mysqli_connect($servidor, $usuario, $contraseña, $bd);
 
