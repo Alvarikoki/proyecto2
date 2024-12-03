@@ -51,11 +51,9 @@ switch ($method) {
                 $productos[] = $row;
             }
         
-            // Inspeccionar lo que devuelve la API
             var_dump($productos); 
             exit;
         
-            // Respuesta en formato JSON (se ejecutará solo si eliminas el var_dump y exit)
             echo json_encode($productos);
             break;
 
