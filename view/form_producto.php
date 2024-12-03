@@ -2,10 +2,6 @@
 session_start(); // Inicia la sesión
 
 $productos = file_get_contents('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
-echo '<pre>';
-var_dump($productos);
-echo '</pre>';
-exit;
 $productos = json_decode($productos, true);
 if ($productos === false) {
     die('Error al conectar con la API.');
