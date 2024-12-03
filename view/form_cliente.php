@@ -1,7 +1,7 @@
 <?php
 session_start(); // Inicia la sesión
 
-$clientes = file_get_contents('http://mercadoapi.azurewebsites.net/apis/api_clientes.php');
+$clientes = file_get_contents('https://mercadoapi.azurewebsites.net/apis/api_clientes.php');
 $clientes = json_decode($clientes, true);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'correo' => $correo
         ];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_clientes.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_clientes.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); // PUT para actualizar
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $data = ['id' => $id];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_clientes.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_clientes.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE'); // DELETE para eliminar
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'correo' => $correo
         ];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_clientes.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_clientes.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));

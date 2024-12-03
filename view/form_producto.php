@@ -1,8 +1,15 @@
 <?php
 session_start(); // Inicia la sesión
 
-$productos = file_get_contents('http://mercadoapi.azurewebsites.net/apis/api_productos.php');
+$productos = file_get_contents('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
+echo '<pre>';
+var_dump($productos);
+echo '</pre>';
+exit;
 $productos = json_decode($productos, true);
+if ($productos === false) {
+    die('Error al conectar con la API.');
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id = $_POST['id'] ?? null;
@@ -20,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_productos.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT'); // PUT para actualizar
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
@@ -46,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $data = ['id' => $id];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_productos.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'DELETE'); // DELETE para eliminar
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
@@ -76,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'cantidad' => $cantidad
         ];
 
-        $ch = curl_init('http://mercadoapi.azurewebsites.net/apis/api_productos.php');
+        $ch = curl_init('https://mercadoapi.azurewebsites.net/apis/api_productos.php');
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
